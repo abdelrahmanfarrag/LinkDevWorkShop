@@ -20,7 +20,7 @@ class NewsUseCase @Inject constructor(private val articlesRepository: ArticlesRe
     val associatedPressRequest = articlesRepository.loadArticlesFromAPI(associatedPress)
     val nextWebRequestAssociatedPressRequestZipOperator =
       BiFunction<Resource<ArticlesEntity>, Resource<ArticlesEntity>, Resource<ArticlesEntity>> { nextWebResponse, associatedPressResponse ->
-        if (nextWebResponse.state == ERROR || associatedPressResponse.state == ERROR) {
+        if (nextWebResponse.state == ERROR && associatedPressResponse.state == ERROR) {
           Resource(
             ERROR,
             message = nextWebResponse.message
