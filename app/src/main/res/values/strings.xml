@@ -1,3 +1,5 @@
 <resources>
-  <string name="app_name">LinkDevWorkShop</string>
+  <string name="app_name">Link Development</string>
+  <string name="open_website">Open Website</string>
+
 </resources>

@@ -47,7 +47,7 @@ fun <T : ViewModel> BaseFragment.getSharedViewModel(
 }
 
 fun BaseFragment.getColor(@ColorRes res: Int) =
-  requireActivity().apply { ContextCompat.getColor(requireContext(), res) }
+  requireActivity().let { ContextCompat.getColor(requireContext(), res) }
 
 fun BaseFragment.getDrawable(@DrawableRes res: Int) =
   requireActivity().apply { ContextCompat.getDrawable(requireContext(), res) }

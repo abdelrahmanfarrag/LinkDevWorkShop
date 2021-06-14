@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.google.android.material.card.MaterialCardView xmlns:android="http://schemas.android.com/apk/res/android"
+  xmlns:app="http://schemas.android.com/apk/res-auto"
+  xmlns:tools="http://schemas.android.com/tools"
+  android:layout_width="match_parent"
+  android:layout_height="wrap_content"
+  android:layout_margin="@dimen/item_news_card_margin"
+  app:cardCornerRadius="@dimen/item_news_card_view_corner_radius"
+  app:cardElevation="@dimen/item_news_card_elevation">
+
+  <androidx.constraintlayout.widget.ConstraintLayout
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <ImageView
+      android:id="@+id/newsImageView"
+      android:layout_width="0dp"
+      android:layout_height="0dp"
+      android:contentDescription="@null"
+      app:layout_constraintDimensionRatio="H,12:6"
+      app:layout_constraintEnd_toEndOf="parent"
+      app:layout_constraintStart_toStartOf="parent"
+      app:layout_constraintTop_toTopOf="parent"
+      app:srcCompat="@color/black" />
+
+    <TextView
+      android:id="@+id/newsTitleTextView"
+      android:layout_width="0dp"
+      android:layout_height="wrap_content"
+      android:layout_marginEnd="@dimen/item_news_card_title_margin_end"
+      android:layout_marginStart="@dimen/item_news_card_title_margin_start"
+      android:layout_marginTop="@dimen/item_news_card_title_margin_top"
+      android:lineSpacingExtra="@dimen/item_news_card_title_line_spacing"
+      android:letterSpacing=".1"
+      android:textStyle="bold"
+      tools:text="Amazing Images : The Best Science Photos of the week"
+      app:layout_constraintEnd_toEndOf="parent"
+      app:layout_constraintStart_toStartOf="@id/newsImageView"
+      app:layout_constraintTop_toBottomOf="@id/newsImageView"
+      />
+
+    <TextView
+      android:id="@+id/newsAuthorTextView"
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:layout_marginStart="@dimen/item_news_card_author_margin_start"
+      android:layout_marginTop="@dimen/item_news_card_author_margin_top"
+      android:letterSpacing=".1"
+      android:textSize="@dimen/item_news_card_author_text_size"
+      app:layout_constraintStart_toStartOf="@id/newsTitleTextView"
+      app:layout_constraintTop_toBottomOf="@id/newsTitleTextView"
+      tools:text="By LiveScience.com" />
+
+    <TextView
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:id="@+id/newsDateTextView"
+      app:layout_constraintTop_toBottomOf="@id/newsAuthorTextView"
+      app:layout_constraintBottom_toBottomOf="parent"
+      tools:text="3 Apl , 2021"
+      android:layout_marginVertical="@dimen/item_new_card_date_margin_vertical"
+      app:layout_constraintEnd_toEndOf="@id/newsTitleTextView"/>
+
+  </androidx.constraintlayout.widget.ConstraintLayout>
+</com.google.android.material.card.MaterialCardView>

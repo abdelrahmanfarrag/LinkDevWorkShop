@@ -6,5 +6,7 @@ import dagger.Module
  * Authored by Abdelrahman Ahmed on 14 Jun, 2021.
  */
 @Module
-class FragmentModule {
+abstract class FragmentModule {
+
+
 }

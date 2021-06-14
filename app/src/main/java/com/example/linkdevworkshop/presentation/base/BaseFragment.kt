@@ -1,7 +1,9 @@
 package com.example.linkdevworkshop.presentation.base
 
 import android.os.Bundle
+import android.view.LayoutInflater
 import android.view.View
+import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import com.example.linkdevworkshop.WorkShopApplication
 import com.example.linkdevworkshop.di.presentation.fragment.FragmentSubComponent
@@ -24,6 +26,12 @@ abstract class BaseFragment : Fragment() {
     setupInjection(fragmentSubComponent)
     super.onCreate(savedInstanceState)
   }
+
+  override fun onCreateView(
+    inflater: LayoutInflater,
+    container: ViewGroup?,
+    savedInstanceState: Bundle?
+  ) = createViewBinding(inflater, container, savedInstanceState)
 
   override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
     super.onViewCreated(view, savedInstanceState)
@@ -48,6 +56,12 @@ abstract class BaseFragment : Fragment() {
    * This function will be overrode by any Child-Fragment to do member field injection in each fragment
    */
   abstract fun setupInjection(fragmentSubComponent: FragmentSubComponent)
+
+  abstract fun createViewBinding(
+    inflater: LayoutInflater,
+    container: ViewGroup?,
+    savedInstanceState: Bundle?
+  ): View
 
   /**
    * This function is optional to override in any Child-Fragment as may a fragment has no toolbar

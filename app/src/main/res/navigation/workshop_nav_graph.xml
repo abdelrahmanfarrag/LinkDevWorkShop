@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+  xmlns:app="http://schemas.android.com/apk/res-auto"
+  xmlns:tools="http://schemas.android.com/tools"
+  android:id="@+id/workshop_nav_graph"
+  app:startDestination="@id/news">
+
+  <fragment
+    android:id="@+id/news"
+    android:name="com.example.linkdevworkshop.presentation.workshop.news.NewsFragment"
+    android:label="fragment_news"
+    tools:layout="@layout/fragment_news" />
+  <fragment
+    android:id="@+id/newsDetails"
+    android:name="com.example.linkdevworkshop.presentation.workshop.newsdetails.NewsDetailsFragment"
+    android:label="fragment_news_details"
+    tools:layout="@layout/fragment_news_details" />
+</navigation>
