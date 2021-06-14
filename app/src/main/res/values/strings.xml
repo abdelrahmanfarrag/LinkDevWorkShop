@@ -1,5 +1,11 @@
 <resources>
   <string name="app_name">Link Development</string>
   <string name="open_website">Open Website</string>
-
+  <string name="welcome">Welcome\nTony Roshdy</string>
+  <string name="explore">Explore</string>
+  <string name="live_chat">Live Chat</string>
+  <string name="gallery">Gallery</string>
+  <string name="wish_list">Wish List</string>
+  <string name="e_magazine">E-Magazine</string>
+  <string name="search">Search</string>
 </resources>

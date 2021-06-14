@@ -10,7 +10,8 @@
     android:roundIcon="@mipmap/ic_launcher_round"
     android:supportsRtl="true"
     android:theme="@style/Theme.LinkDevWorkShop">
-    <activity android:name=".presentation.workshop.MainActivity">
+    <activity android:name=".presentation.workshop.MainActivity"
+      android:windowSoftInputMode="adjustPan">
       <intent-filter>
         <action android:name="android.intent.action.MAIN" />
 

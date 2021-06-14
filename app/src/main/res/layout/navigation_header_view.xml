@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+  xmlns:app="http://schemas.android.com/apk/res-auto"
+  android:layout_width="match_parent"
+  android:layout_height="wrap_content"
+  android:paddingVertical="?attr/actionBarSize">
+
+  <ImageView
+    android:id="@+id/headerViewImageView"
+    android:layout_width="@dimen/navigation_drawer_image_person_width"
+    android:layout_height="@dimen/navigation_drawer_image_person_height"
+    android:layout_marginStart="@dimen/navigation_drawer_image_person_margin_start"
+    android:contentDescription="@null"
+    app:layout_constraintBottom_toBottomOf="parent"
+    app:layout_constraintStart_toStartOf="parent"
+    app:layout_constraintTop_toTopOf="parent"
+    app:srcCompat="@drawable/ic_profile" />
+
+  <ImageView
+    android:layout_width="@dimen/navigation_drawer_height_arrow_image_view_width"
+    android:layout_height="@dimen/navigation_drawer_height_arrow_image_view_height"
+    android:layout_marginEnd="@dimen/navigation_drawer_height_arrow_image_view_margin_end"
+    android:contentDescription="@null"
+    app:layout_constraintBottom_toBottomOf="@id/headerViewImageView"
+    app:layout_constraintEnd_toEndOf="parent"
+    app:layout_constraintTop_toTopOf="@id/headerViewImageView"
+    app:srcCompat="@drawable/ic_arrow" />
+
+  <TextView
+    android:id="@+id/headerTitleTextView"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_marginStart="@dimen/navigation_drawer_height_text_view_margin_start"
+    android:text="@string/welcome"
+    app:layout_constraintBottom_toBottomOf="@id/headerViewImageView"
+    app:layout_constraintStart_toEndOf="@id/headerViewImageView"
+    app:layout_constraintTop_toTopOf="@id/headerViewImageView" />
+</androidx.constraintlayout.widget.ConstraintLayout>

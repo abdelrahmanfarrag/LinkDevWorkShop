@@ -25,6 +25,13 @@
   <dimen name="fragment_news_detail_description_text_size">12sp</dimen>
   <dimen name="fragment_news_detail_description_line_spacing">1dp</dimen>
   <dimen name="fragment_new_detail_open_website_button_height">65dp</dimen>
-
+  <!--Navigation Drawer Header !-->
+  <dimen name="navigation_drawer_image_person_height">64dp</dimen>
+  <dimen name="navigation_drawer_image_person_width">64dp</dimen>
+  <dimen name="navigation_drawer_image_person_margin_start">8dp</dimen>
+  <dimen name="navigation_drawer_height_text_view_margin_start">8dp</dimen>
+  <dimen name="navigation_drawer_height_arrow_image_view_margin_end">8dp</dimen>
+  <dimen name="navigation_drawer_height_arrow_image_view_width">32dp</dimen>
+  <dimen name="navigation_drawer_height_arrow_image_view_height">32dp</dimen>
 
 </resources>
