@@ -3,6 +3,7 @@ package com.example.linkdevworkshop.presentation.workshop.news.adapter
 import com.example.linkdevworkshop.databinding.ItemNewsBinding
 import com.example.linkdevworkshop.presentation.base.BaseViewHolder
 import com.example.linkdevworkshop.presentation.workshop.news.mapper.ArticlesUI.ArticleUI
+import com.example.linkdevworkshop.utility.extension.convertDateToPattern
 import com.example.linkdevworkshop.utility.extension.load
 
 /**
@@ -18,7 +19,7 @@ class NewsViewHolder(
     }
     itemNewsBinding.newsAuthorTextView.text = t.author
     itemNewsBinding.newsTitleTextView.text = t.title
-    itemNewsBinding.newsDateTextView.text = t.publishedAt
+    itemNewsBinding.newsDateTextView.text = t.publishedAt.convertDateToPattern()
     itemNewsBinding.newsImageView.load(t.image)
   }
 }

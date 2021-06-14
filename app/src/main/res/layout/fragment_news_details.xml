@@ -4,6 +4,7 @@
   xmlns:tools="http://schemas.android.com/tools"
   android:layout_width="match_parent"
   android:layout_height="match_parent"
+  android:animateLayoutChanges="true"
   android:background="@color/grey"
   tools:context=".presentation.workshop.newsdetails.NewsDetailsFragment">
 
@@ -35,6 +36,7 @@
           android:id="@+id/newsDetailsImageView"
           android:layout_width="0dp"
           android:layout_height="0dp"
+          android:scaleType="centerInside"
           android:contentDescription="@null"
           app:layout_constraintDimensionRatio="H,12:8"
           app:layout_constraintEnd_toEndOf="parent"

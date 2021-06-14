@@ -4,6 +4,7 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.navigation.fragment.findNavController
 import com.example.linkdevworkshop.R
 import com.example.linkdevworkshop.databinding.FragmentNewsBinding
 import com.example.linkdevworkshop.di.presentation.fragment.FragmentSubComponent
@@ -43,7 +44,8 @@ class NewsFragment : BaseFragment() {
     newsViewModel.getCombinedNewsArticle()
     observingLiveDataOfFragment(newsViewModel.articles, { articles ->
       newsAdapter.setOnArticleClicked { article ->
-        toast(article.author)
+        val direction = NewsFragmentDirections.actionNewsFragmentToNewsDetailsFragment(article)
+        findNavController().navigate(direction)
       }
       _binding?.newsRecyclerView?.adapter = newsAdapter
       newsAdapter.setItems(articles?.articlesUi ?: mutableListOf())
