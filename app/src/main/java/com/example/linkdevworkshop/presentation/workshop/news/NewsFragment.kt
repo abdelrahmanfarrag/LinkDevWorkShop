@@ -9,6 +9,7 @@ import com.example.linkdevworkshop.databinding.FragmentNewsBinding
 import com.example.linkdevworkshop.di.presentation.fragment.FragmentSubComponent
 import com.example.linkdevworkshop.di.presentation.viewmodel.ViewModelFactoryProvider
 import com.example.linkdevworkshop.presentation.base.BaseFragment
+import com.example.linkdevworkshop.presentation.workshop.news.adapter.NewsAdapter
 import com.example.linkdevworkshop.utility.extension.getColor
 import com.example.linkdevworkshop.utility.extension.getViewModel
 import com.example.linkdevworkshop.utility.extension.observingLiveDataOfFragment
@@ -23,6 +24,7 @@ class NewsFragment : BaseFragment() {
   private var _binding: FragmentNewsBinding? = null
   private val binding get() = _binding!!
   @Inject lateinit var factoryProvider: ViewModelFactoryProvider
+  @Inject lateinit var newsAdapter: NewsAdapter
   private val newsViewModel by lazy {
     getViewModel(NewsViewModel::class.java, factoryProvider)
   }
@@ -39,8 +41,12 @@ class NewsFragment : BaseFragment() {
 
   override fun onFragmentSetup(view: View, savedInstanceState: Bundle?) {
     newsViewModel.getCombinedNewsArticle()
-    observingLiveDataOfFragment(newsViewModel.articles, {
-      toast(it?.articlesUi?.size?.toString() ?: "Specified Error")
+    observingLiveDataOfFragment(newsViewModel.articles, { articles ->
+      newsAdapter.setOnArticleClicked { article ->
+        toast(article.author)
+      }
+      _binding?.newsRecyclerView?.adapter = newsAdapter
+      newsAdapter.setItems(articles?.articlesUi ?: mutableListOf())
     }, {
       toast(it)
     })

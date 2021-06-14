@@ -32,24 +32,26 @@ class NewsViewModel @Inject constructor(private val newsUseCase: NewsUseCase) : 
   val articles: LiveData<Resource<ArticlesUI>>
     get() = _articles
 
-  fun getCombinedNewsArticle(){
-    compositeDisposable.add(newsUseCase("the-next-web","associated-press")
-      .doOnSubscribe { _articles.setLoading() }
-      .subscribeOn(Schedulers.io())
-      .observeOn(AndroidSchedulers.mainThread())
-      .subscribe({ movieEntityResource ->
-        movieEntityResource.data?.let {
-          _articles.setSuccess(it.mapToArticlesUI())
-        } ?: _articles.setError(GENERAL)
+  fun getCombinedNewsArticle() {
+    if (articles.value == null) {
+      compositeDisposable.add(newsUseCase("the-next-web", "associated-press")
+        .doOnSubscribe { _articles.setLoading() }
+        .subscribeOn(Schedulers.io())
+        .observeOn(AndroidSchedulers.mainThread())
+        .subscribe({ movieEntityResource ->
+          movieEntityResource.data?.let {
+            _articles.setSuccess(it.mapToArticlesUI())
+          } ?: _articles.setError(GENERAL)
 
-      }, { throwable ->
-        Log.d("throwable",throwable.toString())
-        if (throwable.message == NetworkInterceptor.NETWORK_ISSUE)
-          _articles.setError(NETWORK)
-        else
-          _articles.setError(GENERAL)
-      })
-    )  }
+        }, { throwable ->
+          if (throwable.message == NetworkInterceptor.NETWORK_ISSUE)
+            _articles.setError(NETWORK)
+          else
+            _articles.setError(GENERAL)
+        })
+      )
+    }
+  }
 
   override fun onCleared() {
     compositeDisposable.dispose()

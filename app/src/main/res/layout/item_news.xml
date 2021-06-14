@@ -16,6 +16,7 @@
       android:id="@+id/newsImageView"
       android:layout_width="0dp"
       android:layout_height="0dp"
+      android:scaleType="centerCrop"
       android:contentDescription="@null"
       app:layout_constraintDimensionRatio="H,12:6"
       app:layout_constraintEnd_toEndOf="parent"
