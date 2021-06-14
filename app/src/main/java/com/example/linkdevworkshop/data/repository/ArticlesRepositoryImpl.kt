@@ -1,5 +1,6 @@
 package com.example.linkdevworkshop.data.repository
 
+import android.util.Log
 import com.example.linkdevworkshop.data.remote.api.Api
 import com.example.linkdevworkshop.data.remote.mapper.mapToArticlesEntity
 import com.example.linkdevworkshop.data.remote.validator.Validator
@@ -26,7 +27,7 @@ class ArticlesRepositoryImpl @Inject constructor(
       .map { articles ->
         articles.data?.let { articleResponse ->
           Resource(SUCCESS, data = articleResponse.mapToArticlesEntity())
-        } ?: Resource(ERROR, message = Error.GENERAL)
+        } ?: Resource(ERROR, message = articles.message)
       }
   }
 }

@@ -90,7 +90,7 @@ fun <T, L : LiveData<Resource<T>>> BaseFragment.observingLiveDataOfFragment(
   failureAction: (String) -> Unit
 
 ) {
-  val dialog = this.requireContext().openLoadingDialog()
+  val dialog = this.requireActivity().openLoadingDialog()
   result.observe(viewLifecycleOwner, Observer { resourceOfResponse ->
     when (resourceOfResponse.state) {
       ResourceState.LOADING -> dialog.show()

@@ -33,5 +33,8 @@
   <dimen name="navigation_drawer_height_arrow_image_view_margin_end">8dp</dimen>
   <dimen name="navigation_drawer_height_arrow_image_view_width">32dp</dimen>
   <dimen name="navigation_drawer_height_arrow_image_view_height">32dp</dimen>
+  <!--News Fragment !-->
+  <dimen name="error_text_view_drawable_padding">8dp</dimen>
+  <dimen name="error_text_view_padding">8dp</dimen>
 
 </resources>

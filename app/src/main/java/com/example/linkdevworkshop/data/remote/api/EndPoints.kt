@@ -10,5 +10,7 @@ object EndPoints {
   object Query {
     const val API_KEY = "apiKey"
     const val SOURCE = "source"
+    const val THE_NEXT_WEB= "the-next-web"
+    const val ASSOCIATED_PRESS="associated-press"
   }
 }

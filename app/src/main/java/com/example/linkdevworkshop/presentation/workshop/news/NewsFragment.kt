@@ -11,10 +11,13 @@ import com.example.linkdevworkshop.di.presentation.fragment.FragmentSubComponent
 import com.example.linkdevworkshop.di.presentation.viewmodel.ViewModelFactoryProvider
 import com.example.linkdevworkshop.presentation.base.BaseFragment
 import com.example.linkdevworkshop.presentation.workshop.news.adapter.NewsAdapter
+import com.example.linkdevworkshop.utility.Error
+import com.example.linkdevworkshop.utility.Error.Code
 import com.example.linkdevworkshop.utility.extension.getColor
 import com.example.linkdevworkshop.utility.extension.getViewModel
+import com.example.linkdevworkshop.utility.extension.gone
 import com.example.linkdevworkshop.utility.extension.observingLiveDataOfFragment
-import com.example.linkdevworkshop.utility.extension.toast
+import com.example.linkdevworkshop.utility.extension.visible
 import javax.inject.Inject
 
 /**
@@ -43,6 +46,7 @@ class NewsFragment : BaseFragment() {
   override fun onFragmentSetup(view: View, savedInstanceState: Bundle?) {
     newsViewModel.getCombinedNewsArticle()
     observingLiveDataOfFragment(newsViewModel.articles, { articles ->
+      updateUiWhenErrorHappens(false)
       newsAdapter.setOnArticleClicked { article ->
         val direction = NewsFragmentDirections.actionNewsFragmentToNewsDetailsFragment(article)
         findNavController().navigate(direction)
@@ -50,7 +54,12 @@ class NewsFragment : BaseFragment() {
       _binding?.newsRecyclerView?.adapter = newsAdapter
       newsAdapter.setItems(articles?.articlesUi ?: mutableListOf())
     }, {
-      toast(it)
+      when (it) {
+        Error.GENERAL -> updateUiWhenErrorHappens(true, getString(R.string.error_happened))
+        Error.NETWORK -> updateUiWhenErrorHappens(true, getString(R.string.network_error))
+        Error.MAX_REQUESTS_COUNT_REACHED ->updateUiWhenErrorHappens(true, getString(R.string.max_requests_reach))
+        else -> updateUiWhenErrorHappens(true, it)
+      }
     })
   }
 
@@ -60,5 +69,17 @@ class NewsFragment : BaseFragment() {
 
   override fun releaseObjects() {
     _binding = null
+  }
+
+  private fun updateUiWhenErrorHappens(isError: Boolean, message: String = "") {
+    if (isError) {
+      _binding?.newsRecyclerView?.gone()
+      _binding?.errorIndicatorTextView?.visible()
+      _binding?.errorIndicatorTextView?.text = message
+    } else {
+      _binding?.newsRecyclerView?.visible()
+      _binding?.errorIndicatorTextView?.gone()
+      _binding?.errorIndicatorTextView?.text = message
+    }
   }
 }
