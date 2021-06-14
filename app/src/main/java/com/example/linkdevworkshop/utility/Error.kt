@@ -6,4 +6,5 @@ package com.example.linkdevworkshop.utility
 object Error {
   const val GENERAL = "_error"
   const val NETWORK = "_network"
+  const val ARTICLE_ERROR = "_articleError"
 }

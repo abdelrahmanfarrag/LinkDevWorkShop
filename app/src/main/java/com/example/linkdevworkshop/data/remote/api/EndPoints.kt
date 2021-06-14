@@ -5,7 +5,10 @@ package com.example.linkdevworkshop.data.remote.api
  */
 object EndPoints {
 
-  object Query{
+  const val ARTICLES = "articles"
+
+  object Query {
     const val API_KEY = "apiKey"
+    const val SOURCE = "source"
   }
 }

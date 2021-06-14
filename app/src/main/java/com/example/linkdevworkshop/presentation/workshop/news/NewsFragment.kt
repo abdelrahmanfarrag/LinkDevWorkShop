@@ -7,8 +7,13 @@ import android.view.ViewGroup
 import com.example.linkdevworkshop.R
 import com.example.linkdevworkshop.databinding.FragmentNewsBinding
 import com.example.linkdevworkshop.di.presentation.fragment.FragmentSubComponent
+import com.example.linkdevworkshop.di.presentation.viewmodel.ViewModelFactoryProvider
 import com.example.linkdevworkshop.presentation.base.BaseFragment
 import com.example.linkdevworkshop.utility.extension.getColor
+import com.example.linkdevworkshop.utility.extension.getViewModel
+import com.example.linkdevworkshop.utility.extension.observingLiveDataOfFragment
+import com.example.linkdevworkshop.utility.extension.toast
+import javax.inject.Inject
 
 /**
  * Authored by Abdelrahman Ahmed on 14 Jun, 2021.
@@ -17,6 +22,11 @@ class NewsFragment : BaseFragment() {
 
   private var _binding: FragmentNewsBinding? = null
   private val binding get() = _binding!!
+  @Inject lateinit var factoryProvider: ViewModelFactoryProvider
+  private val newsViewModel by lazy {
+    getViewModel(NewsViewModel::class.java, factoryProvider)
+  }
+
 
   override fun createViewBinding(
     inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?
@@ -27,7 +37,14 @@ class NewsFragment : BaseFragment() {
     return view
   }
 
-  override fun onFragmentSetup(view: View, savedInstanceState: Bundle?) {}
+  override fun onFragmentSetup(view: View, savedInstanceState: Bundle?) {
+    newsViewModel.getCombinedNewsArticle()
+    observingLiveDataOfFragment(newsViewModel.articles, {
+      toast(it?.articlesUi?.size?.toString() ?: "Specified Error")
+    }, {
+      toast(it)
+    })
+  }
 
   override fun setupInjection(fragmentSubComponent: FragmentSubComponent) {
     fragmentSubComponent.inject(this)
