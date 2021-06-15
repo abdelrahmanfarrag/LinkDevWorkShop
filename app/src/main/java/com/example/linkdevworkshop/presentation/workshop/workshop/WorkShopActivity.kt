@@ -1,9 +1,8 @@
-package com.example.linkdevworkshop.presentation.workshop
+package com.example.linkdevworkshop.presentation.workshop.workshop
 
-import android.os.Bundle
 import android.view.Menu
+import android.view.View
 import android.widget.SearchView
-import androidx.appcompat.app.AppCompatActivity
 import androidx.navigation.NavController
 import androidx.navigation.fragment.NavHostFragment
 import androidx.navigation.fragment.findNavController
@@ -13,21 +12,36 @@ import androidx.navigation.ui.setupActionBarWithNavController
 import androidx.navigation.ui.setupWithNavController
 import com.example.linkdevworkshop.R
 import com.example.linkdevworkshop.databinding.ActivityMainBinding
+import com.example.linkdevworkshop.di.presentation.activity.ActivitySubComponent
+import com.example.linkdevworkshop.di.presentation.viewmodel.ViewModelFactoryProvider
+import com.example.linkdevworkshop.presentation.base.BaseActivity
+import com.example.linkdevworkshop.utility.extension.getViewModel
 import com.example.linkdevworkshop.utility.extension.spanDifferentTextSize
 import com.example.linkdevworkshop.utility.extension.toast
+import javax.inject.Inject
 
-class MainActivity : AppCompatActivity() {
+class WorkShopActivity : BaseActivity() {
 
   private lateinit var navController: NavController
   private lateinit var binding: ActivityMainBinding
   private lateinit var appBarConfiguration: AppBarConfiguration
+  @Inject lateinit var factoryProvider: ViewModelFactoryProvider
+  private val workShopViewModel by lazy {
+    getViewModel(WorkShopViewModel::class.java, factoryProvider)
+  }
 
-  override fun onCreate(savedInstanceState: Bundle?) {
-    super.onCreate(savedInstanceState)
-    binding = ActivityMainBinding.inflate(layoutInflater)
-    val view = binding.root
-    setContentView(view)
+  override fun onActivityInitialized() {
     setupNavigationDrawerWithActivity()
+    setupNavigationMenu()
+  }
+
+  override fun setupInjection(activitySubComponent: ActivitySubComponent) {
+    activitySubComponent.inject(this)
+  }
+
+  override fun createViewBinding(): View {
+    binding = ActivityMainBinding.inflate(layoutInflater)
+    return binding.root
   }
 
   override fun onSupportNavigateUp(): Boolean {
@@ -63,5 +77,12 @@ class MainActivity : AppCompatActivity() {
     setupActionBarWithNavController(navController, appBarConfiguration)
     binding.navDrawer.setupWithNavController(navController)
     binding.navigationHeaderView.headerTitleTextView.spanDifferentTextSize(0, 7)
+  }
+
+  private fun setupNavigationMenu() {
+    workShopViewModel.getNavigationMenu()
+    workShopViewModel.navigationList.observe(this,  {
+      toast(it.size.toString())
+    })
   }
 }

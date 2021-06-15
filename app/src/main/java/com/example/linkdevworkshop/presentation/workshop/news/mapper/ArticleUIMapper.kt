@@ -1,6 +1,6 @@
 package com.example.linkdevworkshop.presentation.workshop.news.mapper
 
-import com.example.linkdevworkshop.domain.entity.ArticlesEntity
+import com.example.linkdevworkshop.domain.entity.articles.ArticlesEntity
 import com.example.linkdevworkshop.presentation.workshop.news.mapper.ArticlesUI.ArticleUI
 
 /**

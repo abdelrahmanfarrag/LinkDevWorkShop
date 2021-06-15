@@ -2,7 +2,7 @@ package com.example.linkdevworkshop.di.presentation.activity
 
 import android.app.Activity
 import com.example.linkdevworkshop.di.presentation.scope.PerActivity
-import com.example.linkdevworkshop.presentation.workshop.MainActivity
+import com.example.linkdevworkshop.presentation.workshop.workshop.WorkShopActivity
 import dagger.BindsInstance
 import dagger.Subcomponent
 
@@ -13,7 +13,7 @@ import dagger.Subcomponent
 @Subcomponent(modules = [ActivityModule::class, ActivityViewModelModule::class])
 interface ActivitySubComponent {
 
-  fun inject(mainActivity: MainActivity)
+  fun inject(workShopActivity: WorkShopActivity)
 
   @Subcomponent.Factory
   interface Factory {

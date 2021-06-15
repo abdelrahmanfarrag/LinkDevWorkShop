@@ -1,7 +1,7 @@
-package com.example.linkdevworkshop.domain.usecase
+package com.example.linkdevworkshop.domain.usecase.news
 
-import com.example.linkdevworkshop.domain.entity.ArticlesEntity
-import com.example.linkdevworkshop.domain.repository.ArticlesRepository
+import com.example.linkdevworkshop.domain.entity.articles.ArticlesEntity
+import com.example.linkdevworkshop.domain.repository.articles.ArticlesRepository
 import com.example.linkdevworkshop.presentation.common.Resource
 import com.example.linkdevworkshop.presentation.common.ResourceState.ERROR
 import com.example.linkdevworkshop.presentation.common.ResourceState.SUCCESS

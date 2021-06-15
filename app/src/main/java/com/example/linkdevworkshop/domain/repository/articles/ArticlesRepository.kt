@@ -1,6 +1,6 @@
-package com.example.linkdevworkshop.domain.repository
+package com.example.linkdevworkshop.domain.repository.articles
 
-import com.example.linkdevworkshop.domain.entity.ArticlesEntity
+import com.example.linkdevworkshop.domain.entity.articles.ArticlesEntity
 import com.example.linkdevworkshop.presentation.common.Resource
 import io.reactivex.Single
 

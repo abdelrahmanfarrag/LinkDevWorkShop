@@ -1,4 +1,4 @@
-package com.example.linkdevworkshop.domain.entity
+package com.example.linkdevworkshop.domain.entity.articles
 
 /**
  * Authored by Abdelrahman Ahmed on 14 Jun, 2021.
@@ -6,7 +6,6 @@ package com.example.linkdevworkshop.domain.entity
 data class ArticlesEntity(
   val articles: List<Article>
 ) {
-
   data class Article(
     val author: String,
     val description: String,

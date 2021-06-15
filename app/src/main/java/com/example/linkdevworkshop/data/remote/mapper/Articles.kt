@@ -1,8 +1,8 @@
 package com.example.linkdevworkshop.data.remote.mapper
 
 import com.example.linkdevworkshop.data.remote.response.ArticlesResponse
-import com.example.linkdevworkshop.domain.entity.ArticlesEntity
-import com.example.linkdevworkshop.domain.entity.ArticlesEntity.Article
+import com.example.linkdevworkshop.domain.entity.articles.ArticlesEntity
+import com.example.linkdevworkshop.domain.entity.articles.ArticlesEntity.Article
 
 /**
  * Authored by Abdelrahman Ahmed on 14 Jun, 2021.
