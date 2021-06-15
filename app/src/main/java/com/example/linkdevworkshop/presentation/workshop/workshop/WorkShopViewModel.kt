@@ -25,18 +25,41 @@ class WorkShopViewModel @Inject constructor(private val navigationUseCase: Navig
     get() = _navigationList
 
   fun getNavigationMenu() {
-    compositeDisposable.add(
-      navigationUseCase.invoke()
-        .subscribeOn(Schedulers.io())
-        .observeOn(AndroidSchedulers.mainThread())
-        .subscribe({ navigationEntityList ->
-          _navigationList.postValue(navigationEntityList.map { navigationEntity ->
-            navigationEntity.mapToNavigationModelUI()
+    if (navigationList.value == null) {
+      compositeDisposable.add(
+        navigationUseCase()
+          .subscribeOn(Schedulers.io())
+          .observeOn(AndroidSchedulers.mainThread())
+          .subscribe({ navigationEntityList ->
+            _navigationList.value = navigationEntityList.map { navigationEntity ->
+              navigationEntity.mapToNavigationModelUI()
+            }
+          }, {
+            Log.d("exception", it.toString())
           })
-        }, {
-          Log.d("exception", it.toString())
-        })
-    )
+      )
+    }
+  }
+
+  fun updateSelectedNavigationMenu(item: NavigationModelUI) {
+    item.isSelected = !item.isSelected
+    val navigationMenuItems = navigationList.value
+    navigationMenuItems?.let { navigationItems ->
+      navigationItems.find { it.title == item.title }?.let {
+        val updatedItem = it.copy(
+          title = item.title,
+          isSelected = item.isSelected,
+          icon = item.icon
+        )
+        _navigationList.value = navigationMenuItems.map { oldItem ->
+          if (oldItem.title == item.title) {
+            updatedItem
+          } else {
+            oldItem.copy(isSelected = false, title = oldItem.title, icon = oldItem.icon)
+          }
+        }
+      }
+    }
   }
 
   override fun onCleared() {

@@ -3,6 +3,7 @@ package com.example.linkdevworkshop.presentation.workshop.workshop
 import android.view.Menu
 import android.view.View
 import android.widget.SearchView
+import androidx.core.view.GravityCompat
 import androidx.navigation.NavController
 import androidx.navigation.fragment.NavHostFragment
 import androidx.navigation.fragment.findNavController
@@ -15,6 +16,7 @@ import com.example.linkdevworkshop.databinding.ActivityMainBinding
 import com.example.linkdevworkshop.di.presentation.activity.ActivitySubComponent
 import com.example.linkdevworkshop.di.presentation.viewmodel.ViewModelFactoryProvider
 import com.example.linkdevworkshop.presentation.base.BaseActivity
+import com.example.linkdevworkshop.presentation.workshop.workshop.adapter.NavigationMenuAdapter
 import com.example.linkdevworkshop.utility.extension.getViewModel
 import com.example.linkdevworkshop.utility.extension.spanDifferentTextSize
 import com.example.linkdevworkshop.utility.extension.toast
@@ -22,10 +24,12 @@ import javax.inject.Inject
 
 class WorkShopActivity : BaseActivity() {
 
+  @Inject lateinit var factoryProvider: ViewModelFactoryProvider
+  @Inject lateinit var navigationMenuAdapter: NavigationMenuAdapter
   private lateinit var navController: NavController
   private lateinit var binding: ActivityMainBinding
   private lateinit var appBarConfiguration: AppBarConfiguration
-  @Inject lateinit var factoryProvider: ViewModelFactoryProvider
+
   private val workShopViewModel by lazy {
     getViewModel(WorkShopViewModel::class.java, factoryProvider)
   }
@@ -76,13 +80,19 @@ class WorkShopActivity : BaseActivity() {
       )
     setupActionBarWithNavController(navController, appBarConfiguration)
     binding.navDrawer.setupWithNavController(navController)
-    binding.navigationHeaderView.headerTitleTextView.spanDifferentTextSize(0, 7)
   }
 
   private fun setupNavigationMenu() {
+    binding.navigationHeaderView.headerTitleTextView.spanDifferentTextSize(0, 7)
     workShopViewModel.getNavigationMenu()
-    workShopViewModel.navigationList.observe(this,  {
-      toast(it.size.toString())
+    workShopViewModel.navigationList.observe(this, {
+      navigationMenuAdapter.setOnItemClicked { navigationMenu ->
+        toast(navigationMenu.title)
+        workShopViewModel.updateSelectedNavigationMenu(navigationMenu)
+        binding.drawerLayout.closeDrawer(GravityCompat.START)
+      }
+      binding.navigationItemRV.adapter = navigationMenuAdapter
+      navigationMenuAdapter.setItems(it)
     })
   }
 }
