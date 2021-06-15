@@ -43,7 +43,7 @@ class NewsFragment : BaseFragment() {
   }
 
   override fun onFragmentSetup(view: View, savedInstanceState: Bundle?) {
-    //newsViewModel.getCombinedNewsArticle()
+    newsViewModel.getCombinedNewsArticle()
     observingLiveDataOfFragment(newsViewModel.articles, { articles ->
       updateUiWhenErrorHappens(false)
       newsAdapter.setOnArticleClicked { article ->

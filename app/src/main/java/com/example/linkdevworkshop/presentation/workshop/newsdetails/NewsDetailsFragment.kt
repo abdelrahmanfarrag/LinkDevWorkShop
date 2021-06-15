@@ -1,6 +1,7 @@
 package com.example.linkdevworkshop.presentation.workshop.newsdetails
 
 import android.os.Bundle
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.Menu
 import android.view.MenuInflater
@@ -8,10 +9,12 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.navigation.fragment.navArgs
 import com.example.linkdevworkshop.R
-import com.example.linkdevworkshop.databinding.FragmentNewsBinding
 import com.example.linkdevworkshop.databinding.FragmentNewsDetailsBinding
 import com.example.linkdevworkshop.di.presentation.fragment.FragmentSubComponent
+import com.example.linkdevworkshop.presentation.base.BaseActivity
 import com.example.linkdevworkshop.presentation.base.BaseFragment
+import com.example.linkdevworkshop.utility.extension.convertDateToPattern
+import com.example.linkdevworkshop.utility.extension.createChooserIntent
 import com.example.linkdevworkshop.utility.extension.getColor
 import com.example.linkdevworkshop.utility.extension.load
 
@@ -45,16 +48,15 @@ class NewsDetailsFragment : BaseFragment() {
     super.onCreateOptionsMenu(menu, inflater)
     menu.clear()
   }
+
   override fun onFragmentSetup(view: View, savedInstanceState: Bundle?) {
     detailsArgs.article.let { article ->
-
       binding.newsDetailDescriptionTextView.text = article.description
       binding.newsDetailsTitleTextView.text = article.title
       binding.newsDetailsImageView.load(article.image)
-      binding.newsDetailsDateTextView.text=article.publishedAt
+      binding.newsDetailsDateTextView.text = article.publishedAt.convertDateToPattern()
+      setOnOpenWebUrlClickListener(article.url)
     }
-//    binding.newsDetailDescriptionTextView.text= detailsArgs.article.description
-//    binding.newsDetailsTitleTextView.text=detailsArgs.article
   }
 
   override fun setupInjection(fragmentSubComponent: FragmentSubComponent) {
@@ -65,4 +67,10 @@ class NewsDetailsFragment : BaseFragment() {
     _binding = null
   }
 
+  private fun setOnOpenWebUrlClickListener(url: String) {
+    binding.openWebSiteButton.setOnClickListener {
+      Log.d("printUrl",url)
+      (requireActivity() as BaseActivity).createChooserIntent(url)
+    }
+  }
 }

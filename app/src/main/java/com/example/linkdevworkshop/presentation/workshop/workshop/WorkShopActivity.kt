@@ -86,6 +86,7 @@ class WorkShopActivity : BaseActivity() {
     binding.navigationHeaderView.headerTitleTextView.spanDifferentTextSize(0, 7)
     workShopViewModel.getNavigationMenu()
     workShopViewModel.navigationList.observe(this, {
+      setTheme(R.style.Theme_LinkDevWorkShop)
       navigationMenuAdapter.setOnItemClicked { navigationMenu ->
         toast(navigationMenu.title)
         workShopViewModel.updateSelectedNavigationMenu(navigationMenu)

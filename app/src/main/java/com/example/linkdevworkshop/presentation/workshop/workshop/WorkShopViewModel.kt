@@ -1,6 +1,5 @@
 package com.example.linkdevworkshop.presentation.workshop.workshop
 
-import android.util.Log
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
@@ -34,9 +33,7 @@ class WorkShopViewModel @Inject constructor(private val navigationUseCase: Navig
             _navigationList.value = navigationEntityList.map { navigationEntity ->
               navigationEntity.mapToNavigationModelUI()
             }
-          }, {
-            Log.d("exception", it.toString())
-          })
+          }, {})
       )
     }
   }

@@ -1,5 +1,7 @@
 package com.example.linkdevworkshop.utility.extension
 
+import android.content.Intent
+import android.net.Uri
 import android.widget.Toast
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.ViewModel
@@ -11,6 +13,7 @@ import com.example.linkdevworkshop.presentation.common.ResourceState.ERROR
 import com.example.linkdevworkshop.presentation.common.ResourceState.LOADING
 import com.example.linkdevworkshop.presentation.common.ResourceState.SUCCESS
 import com.example.linkdevworkshop.utility.openLoadingDialog
+
 
 /**
  * Authored by Abdelrahman Ahmed on 14 Jun, 2021.
@@ -61,4 +64,9 @@ fun <T, L : LiveData<Resource<T>>> BaseActivity.observingResourceOfLiveDataOfAct
       }
     }
   })
+}
+
+fun BaseActivity.createChooserIntent(url: String) {
+  val browserIntent = Intent(Intent.ACTION_VIEW, Uri.parse(url))
+  startActivity(browserIntent)
 }

@@ -8,24 +8,38 @@
   android:background="@color/grey"
   tools:context=".presentation.workshop.newsdetails.NewsDetailsFragment">
 
-  <ScrollView
-    android:id="@+id/detailsScrollContainer"
-    android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    android:layout_margin="@dimen/fragment_news_detail_parent_scroll_margin"
+
+  <com.google.android.material.button.MaterialButton
+    android:id="@+id/openWebSiteButton"
+    android:layout_width="0dp"
+    android:layout_height="@dimen/fragment_new_detail_open_website_button_height"
+    android:stateListAnimator="@null"
+    android:text="@string/open_website"
+    android:textColor="@color/white"
+    app:backgroundTint="@color/black"
+    app:layout_constraintBottom_toBottomOf="parent"
+    app:layout_constraintEnd_toEndOf="@+id/detailsCardContainer"
+    app:layout_constraintStart_toStartOf="@+id/detailsCardContainer"
+    app:rippleColor="@color/grey" />
+
+  <com.google.android.material.card.MaterialCardView
+    android:id="@+id/detailsCardContainer"
+    android:layout_width="0dp"
+    android:layout_height="0dp"
+    app:cardBackgroundColor="@color/white"
+    app:cardCornerRadius="@dimen/fragment_news_detail_scroll_card_corner_radius"
     app:layout_constraintBottom_toTopOf="@id/openWebSiteButton"
     app:layout_constraintEnd_toEndOf="parent"
     app:layout_constraintStart_toStartOf="parent"
     app:layout_constraintTop_toTopOf="parent"
-    app:layout_constraintVertical_bias="0.0">
+    app:strokeColor="@color/grey"
+    android:layout_margin="@dimen/fragment_news_detail_parent_scroll_margin"
+    app:strokeWidth="@dimen/fragment_news_detail_scroll_card_stroke_width">
 
-    <com.google.android.material.card.MaterialCardView
+    <ScrollView
+      android:id="@+id/detailsScrollContainer"
       android:layout_width="match_parent"
-      android:layout_height="wrap_content"
-      app:cardBackgroundColor="@color/white"
-      app:cardCornerRadius="@dimen/fragment_news_detail_scroll_card_corner_radius"
-      app:strokeColor="@color/grey"
-      app:strokeWidth="@dimen/fragment_news_detail_scroll_card_stroke_width">
+      android:layout_height="wrap_content">
 
       <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
@@ -36,8 +50,8 @@
           android:id="@+id/newsDetailsImageView"
           android:layout_width="0dp"
           android:layout_height="0dp"
-          android:scaleType="centerInside"
           android:contentDescription="@null"
+          android:scaleType="centerCrop"
           app:layout_constraintDimensionRatio="H,12:8"
           app:layout_constraintEnd_toEndOf="parent"
           app:layout_constraintStart_toStartOf="parent"
@@ -86,20 +100,7 @@
           app:layout_constraintTop_toBottomOf="@id/newsDetailsTitleTextView"
           tools:text="Amazing Images : The Best Science Photos of the weekAmazing Images : The Best Science Photos of the weekAmazing Images : The Best Science Photos of the weekAmazing Images : The Best Science Photos of the weekAmazing Images : The Best Science Photos of the weekAmazing Images : The Best Science Photos of the weekAmazing Images : The Best Science Photos of the weekAmazing Images : The Best Science Photos of the weekAmazing Images : The Best Science Photos of the weekAmazing Images : The Best Science Photos of the weekAmazing Images : The Best Science Photos of the weekAmazing Images : The Best Science Photos of tAmazing Images : The Best Science Photos of the weekAmazing Images : The Best Science Photos of the weekhe week" />
       </androidx.constraintlayout.widget.ConstraintLayout>
-    </com.google.android.material.card.MaterialCardView>
-  </ScrollView>
-
-  <com.google.android.material.button.MaterialButton
-    android:id="@+id/openWebSiteButton"
-    android:layout_width="0dp"
-    android:layout_height="@dimen/fragment_new_detail_open_website_button_height"
-    android:stateListAnimator="@null"
-    android:text="@string/open_website"
-    android:textColor="@color/white"
-    app:backgroundTint="@color/black"
-    app:layout_constraintBottom_toBottomOf="parent"
-    app:layout_constraintEnd_toEndOf="@+id/detailsScrollContainer"
-    app:layout_constraintStart_toStartOf="@+id/detailsScrollContainer"
-    app:rippleColor="@color/grey" />
+    </ScrollView>
+  </com.google.android.material.card.MaterialCardView>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

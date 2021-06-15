@@ -11,4 +11,6 @@
   <string name="max_requests_reach">You have made too many requests recently. Developer accounts are limited to 100 requests over a 24 hour period (50 requests available every 12 hours). Please upgrade to a paid plan if you need more requests</string>
   <string name="error_happened">Something went wrong , try again later</string>
   <string name="network_error">No internet connection \n Check your connection</string>
+  <string name="choose_app">Choose App</string>
+  <string name="no_app">There is no app to do the action required</string>
 </resources>
