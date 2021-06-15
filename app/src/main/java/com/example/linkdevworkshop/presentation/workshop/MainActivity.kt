@@ -2,10 +2,7 @@ package com.example.linkdevworkshop.presentation.workshop
 
 import android.os.Bundle
 import android.view.Menu
-import android.view.MenuItem
-import android.view.View
 import android.widget.SearchView
-import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
 import androidx.navigation.NavController
 import androidx.navigation.fragment.NavHostFragment
@@ -18,10 +15,8 @@ import com.example.linkdevworkshop.R
 import com.example.linkdevworkshop.databinding.ActivityMainBinding
 import com.example.linkdevworkshop.utility.extension.spanDifferentTextSize
 import com.example.linkdevworkshop.utility.extension.toast
-import com.google.android.material.navigation.NavigationView
 
-
-class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelectedListener {
+class MainActivity : AppCompatActivity() {
 
   private lateinit var navController: NavController
   private lateinit var binding: ActivityMainBinding
@@ -51,7 +46,6 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
       override fun onQueryTextChange(query: String?): Boolean {
         return true
       }
-
     })
     return super.onCreateOptionsMenu(menu)
   }
@@ -68,19 +62,6 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
       )
     setupActionBarWithNavController(navController, appBarConfiguration)
     binding.navDrawer.setupWithNavController(navController)
-    binding.navDrawer.setNavigationItemSelectedListener(this);
-    val header: View = binding.navDrawer.getHeaderView(0)
-    val headerTextView = header.findViewById(R.id.headerTitleTextView) as TextView
-    headerTextView.spanDifferentTextSize(0, 7)
+    binding.navigationHeaderView.headerTitleTextView.spanDifferentTextSize(0, 7)
   }
-
-  override fun onNavigationItemSelected(item: MenuItem): Boolean {
-    val title = item.title.toString()
-    when (item.itemId) {
-      R.id.live, R.id.explore, R.id.gallery, R.id.eMagazine, R.id.wishList -> toast(title)
-
-    }
-    return true
-  }
-
 }

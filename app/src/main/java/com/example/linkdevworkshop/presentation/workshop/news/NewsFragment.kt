@@ -12,7 +12,6 @@ import com.example.linkdevworkshop.di.presentation.viewmodel.ViewModelFactoryPro
 import com.example.linkdevworkshop.presentation.base.BaseFragment
 import com.example.linkdevworkshop.presentation.workshop.news.adapter.NewsAdapter
 import com.example.linkdevworkshop.utility.Error
-import com.example.linkdevworkshop.utility.Error.Code
 import com.example.linkdevworkshop.utility.extension.getColor
 import com.example.linkdevworkshop.utility.extension.getViewModel
 import com.example.linkdevworkshop.utility.extension.gone
@@ -44,7 +43,7 @@ class NewsFragment : BaseFragment() {
   }
 
   override fun onFragmentSetup(view: View, savedInstanceState: Bundle?) {
-    newsViewModel.getCombinedNewsArticle()
+    //newsViewModel.getCombinedNewsArticle()
     observingLiveDataOfFragment(newsViewModel.articles, { articles ->
       updateUiWhenErrorHappens(false)
       newsAdapter.setOnArticleClicked { article ->
