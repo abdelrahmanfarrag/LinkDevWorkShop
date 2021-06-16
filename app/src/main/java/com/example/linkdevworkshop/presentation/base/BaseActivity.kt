@@ -29,7 +29,6 @@ abstract class BaseActivity : AppCompatActivity() {
     onActivityInitialized()
   }
 
-
   /**
    * Here is this function we will call any setup for views in Sub-Activity
    * Such as calling webservices ,observing web services response , and any additional actions on view we will but in this function

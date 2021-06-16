@@ -1,12 +1,9 @@
 package com.example.linkdevworkshop.data.remote.validator
 
-import android.util.Log
 import com.example.linkdevworkshop.data.remote.response.ErrorResponse
 import com.example.linkdevworkshop.presentation.common.Resource
-import com.example.linkdevworkshop.presentation.common.ResourceState
 import com.example.linkdevworkshop.presentation.common.ResourceState.ERROR
 import com.example.linkdevworkshop.presentation.common.ResourceState.SUCCESS
-import com.example.linkdevworkshop.utility.Error
 import com.example.linkdevworkshop.utility.Error.GENERAL
 import com.google.gson.Gson
 import retrofit2.Response
@@ -21,7 +18,7 @@ class Validator @Inject constructor(private val gson: Gson) {
     response?.let {
       it.apply {
         if (this.code() == 429)
-        return  Resource(ERROR, message = Error.MAX_REQUESTS_COUNT_REACHED)
+          handErrorResponse(response)
         else {
           if (isSuccessful) {
             val model = response.body()
@@ -38,6 +35,10 @@ class Validator @Inject constructor(private val gson: Gson) {
     return Resource(ERROR, message = GENERAL)
   }
 
+  private fun <T> handErrorResponse(response: Response<T>): Resource<T> {
+    val errorResponse = gson.fromJson(response.errorBody()?.toString(), ErrorResponse::class.java)
+    return Resource(ERROR, message = errorResponse.message)
+  }
 
   private fun modelToJson(obj: Any): String {
     return gson.toJson(obj)

@@ -5,12 +5,11 @@ import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import com.example.linkdevworkshop.data.remote.api.EndPoints.Query.ASSOCIATED_PRESS
 import com.example.linkdevworkshop.data.remote.api.EndPoints.Query.THE_NEXT_WEB
-import com.example.linkdevworkshop.data.remote.network.NetworkInterceptor
 import com.example.linkdevworkshop.domain.usecase.news.NewsUseCase
 import com.example.linkdevworkshop.presentation.common.Resource
 import com.example.linkdevworkshop.presentation.workshop.news.mapper.ArticlesUI
 import com.example.linkdevworkshop.presentation.workshop.news.mapper.mapToArticlesUI
-import com.example.linkdevworkshop.utility.Error.Code
+import com.example.linkdevworkshop.utility.Error.Exceptions.NETWORK_INTERCEPTOR_ERROR
 import com.example.linkdevworkshop.utility.Error.GENERAL
 import com.example.linkdevworkshop.utility.Error.NETWORK
 import com.example.linkdevworkshop.utility.extension.setError
@@ -46,8 +45,7 @@ class NewsViewModel @Inject constructor(private val newsUseCase: NewsUseCase) : 
           } ?: _articles.setError(movieEntityResource?.message ?: GENERAL)
         }, { throwable ->
           when (throwable.message) {
-            NetworkInterceptor.NETWORK_ISSUE -> _articles.setError(NETWORK)
-            Code.MAX_REQUESTS_COUNT_REACHED -> _articles.setError(Code.MAX_REQUESTS_COUNT_REACHED)
+            NETWORK_INTERCEPTOR_ERROR -> _articles.setError(NETWORK)
             else -> _articles.setError(GENERAL)
           }
         })

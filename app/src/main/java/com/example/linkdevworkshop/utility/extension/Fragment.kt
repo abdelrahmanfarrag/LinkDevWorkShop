@@ -1,14 +1,11 @@
 package com.example.linkdevworkshop.utility.extension
 
-import android.content.Context
 import android.view.WindowManager
-import android.view.inputmethod.InputMethodManager
 import android.widget.Toast
 import androidx.annotation.ColorRes
 import androidx.annotation.DrawableRes
 import androidx.core.content.ContextCompat
 import androidx.lifecycle.LiveData
-import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
 import com.example.linkdevworkshop.presentation.base.BaseFragment
@@ -34,32 +31,11 @@ fun <T : ViewModel> BaseFragment.getViewModel(
   } ?: ViewModelProvider(this).get(viewModelClass)
 }
 
-/**
- * if any fragment shares @ViewModel with any other fragment we @Must use this extension function
- */
-fun <T : ViewModel> BaseFragment.getSharedViewModel(
-  viewModelClass: Class<T>,
-  factory: ViewModelProvider.Factory? = null
-): T {
-  return factory?.let { viewModelFactory ->
-    ViewModelProvider(requireActivity(), viewModelFactory).get(viewModelClass)
-  } ?: ViewModelProvider(requireActivity()).get(viewModelClass)
-}
-
 fun BaseFragment.getColor(@ColorRes res: Int) =
   requireActivity().let { ContextCompat.getColor(requireContext(), res) }
 
 fun BaseFragment.getDrawable(@DrawableRes res: Int) =
-  requireActivity().apply { ContextCompat.getDrawable(requireContext(), res) }
-
-fun BaseFragment.hideKeypad() {
-  activity?.let { activity ->
-    requireActivity().currentFocus?.let { view ->
-      val imm = activity.getSystemService(Context.INPUT_METHOD_SERVICE) as InputMethodManager
-      imm.hideSoftInputFromWindow(view.windowToken, 0)
-    }
-  }
-}
+  requireActivity().let { ContextCompat.getDrawable(requireContext(), res) }
 
 /**
  *
@@ -69,11 +45,9 @@ fun BaseFragment.toast(msg: String) {
   Toast.makeText(requireContext(), msg, Toast.LENGTH_SHORT).show()
 }
 
-
 fun BaseFragment.adjustViewPan() {
   requireActivity().window.setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_ADJUST_PAN);
 }
-
 
 /**
  * This extension function helps to get the data from the @ViewModel to @Operate on it
@@ -91,7 +65,7 @@ fun <T, L : LiveData<Resource<T>>> BaseFragment.observingLiveDataOfFragment(
 
 ) {
   val dialog = this.requireActivity().openLoadingDialog()
-  result.observe(viewLifecycleOwner, Observer { resourceOfResponse ->
+  result.observe(viewLifecycleOwner, { resourceOfResponse ->
     when (resourceOfResponse.state) {
       ResourceState.LOADING -> dialog.show()
       ResourceState.SUCCESS -> {

@@ -37,11 +37,11 @@
   <dimen name="error_text_view_drawable_padding">8dp</dimen>
   <dimen name="error_text_view_padding">8dp</dimen>
   <!--Item navigation !-->
-  <dimen name="item_navigation_parent_margin_bottom">16dp</dimen>
+  <dimen name="item_navigation_parent_margin_bottom">8dp</dimen>
   <dimen name="item_navigation_icon_height">32dp</dimen>
   <dimen name="item_navigation_icon_width">32dp</dimen>
   <dimen name="item_navigation_icon_margin_start">16dp</dimen>
-  <dimen name="item_navigation_icon_margin_vertical">16dp</dimen>
+  <dimen name="item_navigation_icon_margin_vertical">8dp</dimen>
   <dimen name="item_navigation_title_padding">8dp</dimen>
   <dimen name="item_navigation_indicator_width">8dp</dimen>
 

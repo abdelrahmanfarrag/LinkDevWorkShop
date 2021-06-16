@@ -15,7 +15,7 @@ class NullOnEmptyConverterFactory @Inject constructor() : Converter.Factory() {
     type: Type,
     annotations: Array<Annotation>,
     retrofit: Retrofit
-  ): Converter<ResponseBody, *>? {
+  ): Converter<ResponseBody, *> {
     val delegate = retrofit.nextResponseBodyConverter<Any>(this, type, annotations)
     @Suppress("RemoveExplicitTypeArguments")
     return Converter<ResponseBody, Any> { body ->

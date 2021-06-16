@@ -3,7 +3,6 @@ package com.example.linkdevworkshop.presentation.workshop.workshop.adapter
 import com.example.linkdevworkshop.databinding.ItemNavigationViewBinding
 import com.example.linkdevworkshop.presentation.base.BaseViewHolder
 import com.example.linkdevworkshop.presentation.workshop.workshop.mapper.NavigationModelUI
-import com.example.linkdevworkshop.utility.extension.gone
 import com.example.linkdevworkshop.utility.extension.visible
 
 /**
@@ -21,10 +20,7 @@ class NavigationMenuViewHolder(
     itemNavigationViewBinding.apply {
       navigationItemTitleTextView.text = t.title
       navigationItemIconImageView.setImageDrawable(t.icon)
-      if (t.isSelected)
-        navigationSelectedIndicatorView.visible()
-      else
-        navigationSelectedIndicatorView.gone()
+      if (t.isSelected) navigationSelectedIndicatorView.visible()
     }
   }
 }

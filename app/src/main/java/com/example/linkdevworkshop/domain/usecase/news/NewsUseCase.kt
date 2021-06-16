@@ -26,12 +26,12 @@ class NewsUseCase @Inject constructor(private val articlesRepository: ArticlesRe
             message = nextWebResponse.message
           )
         } else {
-          val combinedNewsList = mutableListOf<ArticlesEntity.Article>()
-          combinedNewsList.addAll(nextWebResponse.data?.articles ?: mutableListOf())
-          combinedNewsList.addAll(associatedPressResponse.data?.articles ?: mutableListOf())
+          val zipOperatorResult = mutableListOf<ArticlesEntity.Article>()
+          zipOperatorResult.addAll(nextWebResponse.data?.articles ?: mutableListOf())
+          zipOperatorResult.addAll(associatedPressResponse.data?.articles ?: mutableListOf())
           Resource(
             SUCCESS,
-            data = ArticlesEntity(combinedNewsList)
+            data = ArticlesEntity(zipOperatorResult)
           )
         }
       }

@@ -6,9 +6,8 @@ package com.example.linkdevworkshop.utility
 object Error {
   const val GENERAL = "_error"
   const val NETWORK = "_network"
-  const val MAX_REQUESTS_COUNT_REACHED = "max_request_error"
-  object Code{
-    const val MAX_REQUESTS_COUNT_REACHED = "rateLimited"
 
+  object Exceptions {
+    const val NETWORK_INTERCEPTOR_ERROR = "Network is not available"
   }
 }

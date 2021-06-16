@@ -2,9 +2,8 @@ package com.example.linkdevworkshop.data.repository.navigation
 
 import android.app.Application
 import androidx.core.content.ContextCompat
-import com.example.linkdevworkshop.R
-import com.example.linkdevworkshop.data.locale.mapper.mapToNavigationEntity
-import com.example.linkdevworkshop.data.locale.model.NavigationModel
+import com.example.linkdevworkshop.R.drawable
+import com.example.linkdevworkshop.R.string
 import com.example.linkdevworkshop.domain.entity.navigation.NavigationEntity
 import com.example.linkdevworkshop.domain.repository.navigation.NavigationRepository
 import io.reactivex.Single
@@ -17,39 +16,37 @@ class NavigationRepositoryImpl @Inject constructor(private val context: Applicat
   NavigationRepository {
 
   override fun getNavigationList(): Single<List<NavigationEntity>> {
-    val navigationItems = mutableListOf<NavigationModel>()
+    val navigationItems = mutableListOf<NavigationEntity>()
     navigationItems.add(
-      NavigationModel(
-        title = context.getString(R.string.explore),
-        icon = ContextCompat.getDrawable(context, R.drawable.ic_explore)
+      NavigationEntity(
+        title = context.getString(string.explore),
+        icon = ContextCompat.getDrawable(context, drawable.ic_explore)
       )
     )
     navigationItems.add(
-      NavigationModel(
-        title = context.getString(R.string.live_chat),
-        icon = ContextCompat.getDrawable(context, R.drawable.ic_live)
+      NavigationEntity(
+        title = context.getString(string.live_chat),
+        icon = ContextCompat.getDrawable(context, drawable.ic_live)
       )
     )
     navigationItems.add(
-      NavigationModel(
-        title = context.getString(R.string.gallery),
-        icon = ContextCompat.getDrawable(context, R.drawable.ic_gallery)
+      NavigationEntity(
+        title = context.getString(string.gallery),
+        icon = ContextCompat.getDrawable(context, drawable.ic_gallery)
       )
     )
     navigationItems.add(
-      NavigationModel(
-        title = context.getString(R.string.wish_list),
-        icon = ContextCompat.getDrawable(context, R.drawable.ic_wishlist)
+      NavigationEntity(
+        title = context.getString(string.wish_list),
+        icon = ContextCompat.getDrawable(context, drawable.ic_wishlist)
       )
     )
     navigationItems.add(
-      NavigationModel(
-        title = context.getString(R.string.e_magazine),
-        icon = ContextCompat.getDrawable(context, R.drawable.ic_e_magazine)
+      NavigationEntity(
+        title = context.getString(string.e_magazine),
+        icon = ContextCompat.getDrawable(context, drawable.ic_e_magazine)
       )
     )
-    return Single.just(navigationItems.map {
-      it.mapToNavigationEntity()
-    })
+    return Single.just(navigationItems)
   }
 }

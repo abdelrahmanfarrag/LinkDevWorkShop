@@ -1,6 +1,5 @@
 package com.example.linkdevworkshop.utility.extension
 
-import android.util.Log
 import java.text.SimpleDateFormat
 import java.util.Locale
 
@@ -12,7 +11,6 @@ fun String.convertDateToPattern(convertToPattern: String = "MMM dd, yyyy"): Stri
     val resource = this.let {
       replace("T", " ", true).replace("Z", "", true)
     }
-    Log.d("printThis", resource)
     val format = SimpleDateFormat("yyyy-MM-dd HH:mm:ss", Locale.ENGLISH)
     val date = format.parse(resource)
     val dateFormat = SimpleDateFormat(convertToPattern, Locale.getDefault())

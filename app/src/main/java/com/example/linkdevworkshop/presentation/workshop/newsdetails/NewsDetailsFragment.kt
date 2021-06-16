@@ -1,7 +1,6 @@
 package com.example.linkdevworkshop.presentation.workshop.newsdetails
 
 import android.os.Bundle
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.Menu
 import android.view.MenuInflater
@@ -27,6 +26,9 @@ class NewsDetailsFragment : BaseFragment() {
   private val binding get() = _binding!!
   private val detailsArgs: NewsDetailsFragmentArgs by navArgs()
 
+  override fun setupInjection(fragmentSubComponent: FragmentSubComponent) {
+    fragmentSubComponent.inject(this)
+  }
 
   override fun createViewBinding(
     inflater: LayoutInflater,
@@ -50,17 +52,14 @@ class NewsDetailsFragment : BaseFragment() {
   }
 
   override fun onFragmentSetup(view: View, savedInstanceState: Bundle?) {
-    detailsArgs.article.let { article ->
-      binding.newsDetailDescriptionTextView.text = article.description
-      binding.newsDetailsTitleTextView.text = article.title
-      binding.newsDetailsImageView.load(article.image)
-      binding.newsDetailsDateTextView.text = article.publishedAt.convertDateToPattern()
-      setOnOpenWebUrlClickListener(article.url)
+    detailsArgs.article.apply {
+      binding.newsDetailDescriptionTextView.text = description
+      binding.newsDetailsTitleTextView.text = title
+      binding.newsDetailsImageView.load(image)
+      binding.newsDetailsDateTextView.text = publishedAt.convertDateToPattern()
+      setOnOpenWebUrlClickListener(url)
     }
-  }
 
-  override fun setupInjection(fragmentSubComponent: FragmentSubComponent) {
-    fragmentSubComponent.inject(this)
   }
 
   override fun releaseObjects() {
@@ -69,7 +68,6 @@ class NewsDetailsFragment : BaseFragment() {
 
   private fun setOnOpenWebUrlClickListener(url: String) {
     binding.openWebSiteButton.setOnClickListener {
-      Log.d("printUrl",url)
       (requireActivity() as BaseActivity).createChooserIntent(url)
     }
   }

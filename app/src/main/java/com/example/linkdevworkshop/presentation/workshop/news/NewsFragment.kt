@@ -24,14 +24,13 @@ import javax.inject.Inject
  */
 class NewsFragment : BaseFragment() {
 
-  private var _binding: FragmentNewsBinding? = null
-  private val binding get() = _binding!!
   @Inject lateinit var factoryProvider: ViewModelFactoryProvider
   @Inject lateinit var newsAdapter: NewsAdapter
+  private var _binding: FragmentNewsBinding? = null
+  private val binding get() = _binding!!
   private val newsViewModel by lazy {
     getViewModel(NewsViewModel::class.java, factoryProvider)
   }
-
 
   override fun createViewBinding(
     inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?
@@ -56,7 +55,6 @@ class NewsFragment : BaseFragment() {
       when (it) {
         Error.GENERAL -> updateUiWhenErrorHappens(true, getString(R.string.error_happened))
         Error.NETWORK -> updateUiWhenErrorHappens(true, getString(R.string.network_error))
-        Error.MAX_REQUESTS_COUNT_REACHED ->updateUiWhenErrorHappens(true, getString(R.string.max_requests_reach))
         else -> updateUiWhenErrorHappens(true, it)
       }
     })
