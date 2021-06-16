@@ -2,7 +2,7 @@ package com.example.linkdevworkshop.di.presentation.activity
 
 import android.app.Activity
 import com.example.linkdevworkshop.di.presentation.scope.PerActivity
-import com.example.linkdevworkshop.presentation.workshop.workshop.WorkShopActivity
+import com.example.linkdevworkshop.presentation.ui.workshop.workshop.WorkShopActivity
 import dagger.BindsInstance
 import dagger.Subcomponent
 

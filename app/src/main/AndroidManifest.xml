@@ -10,7 +10,8 @@
     android:roundIcon="@mipmap/ic_launcher_round"
     android:supportsRtl="true"
     android:theme="@style/splashScreenTheme">
-    <activity android:name=".presentation.workshop.workshop.WorkShopActivity"
+    <activity
+      android:name="com.example.linkdevworkshop.presentation.ui.workshop.workshop.WorkShopActivity"
       android:windowSoftInputMode="adjustPan">
       <intent-filter>
         <action android:name="android.intent.action.MAIN" />

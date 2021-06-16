@@ -1,8 +1,8 @@
-package com.example.linkdevworkshop.presentation.workshop.workshop.adapter
+package com.example.linkdevworkshop.presentation.ui.workshop.workshop.adapter
 
 import com.example.linkdevworkshop.databinding.ItemNavigationViewBinding
-import com.example.linkdevworkshop.presentation.base.BaseViewHolder
-import com.example.linkdevworkshop.presentation.workshop.workshop.mapper.NavigationModelUI
+import com.example.linkdevworkshop.presentation.ui.base.BaseViewHolder
+import com.example.linkdevworkshop.presentation.ui.workshop.workshop.mapper.NavigationModelUI
 import com.example.linkdevworkshop.utility.extension.visible
 
 /**

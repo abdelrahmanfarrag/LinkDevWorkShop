@@ -1,4 +1,4 @@
-package com.example.linkdevworkshop.presentation.workshop.news
+package com.example.linkdevworkshop.presentation.ui.workshop.news
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
@@ -7,8 +7,8 @@ import com.example.linkdevworkshop.data.remote.api.EndPoints.Query.ASSOCIATED_PR
 import com.example.linkdevworkshop.data.remote.api.EndPoints.Query.THE_NEXT_WEB
 import com.example.linkdevworkshop.domain.usecase.news.NewsUseCase
 import com.example.linkdevworkshop.presentation.common.Resource
-import com.example.linkdevworkshop.presentation.workshop.news.mapper.ArticlesUI
-import com.example.linkdevworkshop.presentation.workshop.news.mapper.mapToArticlesUI
+import com.example.linkdevworkshop.presentation.ui.workshop.news.mapper.ArticlesUI
+import com.example.linkdevworkshop.presentation.ui.workshop.news.mapper.mapToArticlesUI
 import com.example.linkdevworkshop.utility.Error.Exceptions.NETWORK_INTERCEPTOR_ERROR
 import com.example.linkdevworkshop.utility.Error.GENERAL
 import com.example.linkdevworkshop.utility.Error.NETWORK

@@ -1,7 +1,7 @@
-package com.example.linkdevworkshop.presentation.workshop.news.mapper
+package com.example.linkdevworkshop.presentation.ui.workshop.news.mapper
 
 import com.example.linkdevworkshop.domain.entity.articles.ArticlesEntity
-import com.example.linkdevworkshop.presentation.workshop.news.mapper.ArticlesUI.ArticleUI
+import com.example.linkdevworkshop.presentation.ui.workshop.news.mapper.ArticlesUI.ArticleUI
 
 /**
  * Authored by Abdelrahman Ahmed on 14 Jun, 2021.

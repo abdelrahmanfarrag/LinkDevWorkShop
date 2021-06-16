@@ -8,7 +8,7 @@ import androidx.core.content.ContextCompat
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
-import com.example.linkdevworkshop.presentation.base.BaseFragment
+import com.example.linkdevworkshop.presentation.ui.base.BaseFragment
 import com.example.linkdevworkshop.presentation.common.Resource
 import com.example.linkdevworkshop.presentation.common.ResourceState
 import com.example.linkdevworkshop.utility.openLoadingDialog

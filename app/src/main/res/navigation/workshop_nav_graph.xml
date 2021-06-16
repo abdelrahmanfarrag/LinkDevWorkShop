@@ -7,7 +7,7 @@
 
   <fragment
     android:id="@+id/newsFragment"
-    android:name="com.example.linkdevworkshop.presentation.workshop.news.NewsFragment"
+    android:name="com.example.linkdevworkshop.presentation.ui.workshop.news.NewsFragment"
     android:label="Link Development"
     tools:layout="@layout/fragment_news" >
     <action
@@ -20,11 +20,11 @@
   </fragment>
   <fragment
     android:id="@+id/newsDetailsFragment"
-    android:name="com.example.linkdevworkshop.presentation.workshop.newsdetails.NewsDetailsFragment"
+    android:name="com.example.linkdevworkshop.presentation.ui.workshop.newsdetails.NewsDetailsFragment"
     android:label="Link Development"
     tools:layout="@layout/fragment_news_details" >
     <argument
       android:name="article"
-      app:argType="com.example.linkdevworkshop.presentation.workshop.news.mapper.ArticlesUI$ArticleUI" />
+      app:argType="com.example.linkdevworkshop.presentation.ui.workshop.news.mapper.ArticlesUI$ArticleUI" />
   </fragment>
 </navigation>

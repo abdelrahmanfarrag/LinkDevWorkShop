@@ -7,7 +7,7 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.ViewModelStoreOwner
-import com.example.linkdevworkshop.presentation.base.BaseActivity
+import com.example.linkdevworkshop.presentation.ui.base.BaseActivity
 import com.example.linkdevworkshop.presentation.common.Resource
 import com.example.linkdevworkshop.presentation.common.ResourceState.ERROR
 import com.example.linkdevworkshop.presentation.common.ResourceState.LOADING

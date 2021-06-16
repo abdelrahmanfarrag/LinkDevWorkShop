@@ -1,4 +1,4 @@
-package com.example.linkdevworkshop.presentation.workshop.workshop.mapper
+package com.example.linkdevworkshop.presentation.ui.workshop.workshop.mapper
 
 import com.example.linkdevworkshop.domain.entity.navigation.NavigationEntity
 

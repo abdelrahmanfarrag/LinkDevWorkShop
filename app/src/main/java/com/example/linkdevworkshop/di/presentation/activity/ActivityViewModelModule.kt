@@ -3,7 +3,7 @@ package com.example.linkdevworkshop.di.presentation.activity
 import androidx.lifecycle.ViewModel
 import com.example.linkdevworkshop.di.presentation.binding.ViewModelKey
 import com.example.linkdevworkshop.di.presentation.viewmodel.ViewModelProviderModule
-import com.example.linkdevworkshop.presentation.workshop.workshop.WorkShopViewModel
+import com.example.linkdevworkshop.presentation.ui.workshop.workshop.WorkShopViewModel
 import dagger.Binds
 import dagger.Module
 import dagger.multibindings.IntoMap

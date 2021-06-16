@@ -1,4 +1,4 @@
-package com.example.linkdevworkshop.presentation.workshop.news
+package com.example.linkdevworkshop.presentation.ui.workshop.news
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -9,8 +9,8 @@ import com.example.linkdevworkshop.R
 import com.example.linkdevworkshop.databinding.FragmentNewsBinding
 import com.example.linkdevworkshop.di.presentation.fragment.FragmentSubComponent
 import com.example.linkdevworkshop.di.presentation.viewmodel.ViewModelFactoryProvider
-import com.example.linkdevworkshop.presentation.base.BaseFragment
-import com.example.linkdevworkshop.presentation.workshop.news.adapter.NewsAdapter
+import com.example.linkdevworkshop.presentation.ui.base.BaseFragment
+import com.example.linkdevworkshop.presentation.ui.workshop.news.adapter.NewsAdapter
 import com.example.linkdevworkshop.utility.Error
 import com.example.linkdevworkshop.utility.extension.getColor
 import com.example.linkdevworkshop.utility.extension.getViewModel

@@ -1,4 +1,4 @@
-package com.example.linkdevworkshop.presentation.workshop.newsdetails
+package com.example.linkdevworkshop.presentation.ui.workshop.newsdetails
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -10,8 +10,8 @@ import androidx.navigation.fragment.navArgs
 import com.example.linkdevworkshop.R
 import com.example.linkdevworkshop.databinding.FragmentNewsDetailsBinding
 import com.example.linkdevworkshop.di.presentation.fragment.FragmentSubComponent
-import com.example.linkdevworkshop.presentation.base.BaseActivity
-import com.example.linkdevworkshop.presentation.base.BaseFragment
+import com.example.linkdevworkshop.presentation.ui.base.BaseActivity
+import com.example.linkdevworkshop.presentation.ui.base.BaseFragment
 import com.example.linkdevworkshop.utility.extension.convertDateToPattern
 import com.example.linkdevworkshop.utility.extension.createChooserIntent
 import com.example.linkdevworkshop.utility.extension.getColor

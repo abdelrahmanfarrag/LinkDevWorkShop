@@ -1,4 +1,4 @@
-package com.example.linkdevworkshop.presentation.workshop.workshop.adapter
+package com.example.linkdevworkshop.presentation.ui.workshop.workshop.adapter
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
@@ -6,8 +6,8 @@ import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.DiffUtil.ItemCallback
 import androidx.viewbinding.ViewBinding
 import com.example.linkdevworkshop.databinding.ItemNavigationViewBinding
-import com.example.linkdevworkshop.presentation.base.RecyclerAdapter
-import com.example.linkdevworkshop.presentation.workshop.workshop.mapper.NavigationModelUI
+import com.example.linkdevworkshop.presentation.ui.base.RecyclerAdapter
+import com.example.linkdevworkshop.presentation.ui.workshop.workshop.mapper.NavigationModelUI
 import javax.inject.Inject
 
 /**

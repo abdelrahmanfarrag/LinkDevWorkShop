@@ -1,8 +1,8 @@
-package com.example.linkdevworkshop.presentation.workshop.news.adapter
+package com.example.linkdevworkshop.presentation.ui.workshop.news.adapter
 
 import com.example.linkdevworkshop.databinding.ItemNewsBinding
-import com.example.linkdevworkshop.presentation.base.BaseViewHolder
-import com.example.linkdevworkshop.presentation.workshop.news.mapper.ArticlesUI.ArticleUI
+import com.example.linkdevworkshop.presentation.ui.base.BaseViewHolder
+import com.example.linkdevworkshop.presentation.ui.workshop.news.mapper.ArticlesUI.ArticleUI
 import com.example.linkdevworkshop.utility.extension.convertDateToPattern
 import com.example.linkdevworkshop.utility.extension.load
 

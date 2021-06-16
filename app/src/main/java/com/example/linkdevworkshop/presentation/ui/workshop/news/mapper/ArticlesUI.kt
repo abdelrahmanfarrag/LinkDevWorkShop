@@ -1,4 +1,4 @@
-package com.example.linkdevworkshop.presentation.workshop.news.mapper
+package com.example.linkdevworkshop.presentation.ui.workshop.news.mapper
 
 import android.os.Parcelable
 import kotlinx.android.parcel.Parcelize

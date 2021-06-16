@@ -2,8 +2,8 @@ package com.example.linkdevworkshop.di.presentation.fragment
 
 import androidx.fragment.app.Fragment
 import com.example.linkdevworkshop.di.presentation.scope.PerFragment
-import com.example.linkdevworkshop.presentation.workshop.news.NewsFragment
-import com.example.linkdevworkshop.presentation.workshop.newsdetails.NewsDetailsFragment
+import com.example.linkdevworkshop.presentation.ui.workshop.news.NewsFragment
+import com.example.linkdevworkshop.presentation.ui.workshop.newsdetails.NewsDetailsFragment
 import dagger.BindsInstance
 import dagger.Subcomponent
 

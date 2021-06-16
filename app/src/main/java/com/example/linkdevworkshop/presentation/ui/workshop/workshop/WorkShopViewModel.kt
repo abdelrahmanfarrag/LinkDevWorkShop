@@ -1,11 +1,11 @@
-package com.example.linkdevworkshop.presentation.workshop.workshop
+package com.example.linkdevworkshop.presentation.ui.workshop.workshop
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import com.example.linkdevworkshop.domain.usecase.navigation.NavigationUseCase
-import com.example.linkdevworkshop.presentation.workshop.workshop.mapper.NavigationModelUI
-import com.example.linkdevworkshop.presentation.workshop.workshop.mapper.mapToNavigationModelUI
+import com.example.linkdevworkshop.presentation.ui.workshop.workshop.mapper.NavigationModelUI
+import com.example.linkdevworkshop.presentation.ui.workshop.workshop.mapper.mapToNavigationModelUI
 import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.disposables.CompositeDisposable
 import io.reactivex.schedulers.Schedulers

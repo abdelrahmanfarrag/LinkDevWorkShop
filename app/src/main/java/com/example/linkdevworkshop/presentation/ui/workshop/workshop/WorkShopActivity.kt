@@ -1,4 +1,4 @@
-package com.example.linkdevworkshop.presentation.workshop.workshop
+package com.example.linkdevworkshop.presentation.ui.workshop.workshop
 
 import android.view.Menu
 import android.view.View
@@ -15,8 +15,8 @@ import com.example.linkdevworkshop.R
 import com.example.linkdevworkshop.databinding.ActivityMainBinding
 import com.example.linkdevworkshop.di.presentation.activity.ActivitySubComponent
 import com.example.linkdevworkshop.di.presentation.viewmodel.ViewModelFactoryProvider
-import com.example.linkdevworkshop.presentation.base.BaseActivity
-import com.example.linkdevworkshop.presentation.workshop.workshop.adapter.NavigationMenuAdapter
+import com.example.linkdevworkshop.presentation.ui.base.BaseActivity
+import com.example.linkdevworkshop.presentation.ui.workshop.workshop.adapter.NavigationMenuAdapter
 import com.example.linkdevworkshop.utility.extension.getViewModel
 import com.example.linkdevworkshop.utility.extension.spanDifferentTextSize
 import com.example.linkdevworkshop.utility.extension.toast

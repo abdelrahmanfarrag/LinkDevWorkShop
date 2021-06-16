@@ -1,4 +1,4 @@
-package com.example.linkdevworkshop.presentation.base
+package com.example.linkdevworkshop.presentation.ui.base
 
 import android.os.Bundle
 import android.view.View
