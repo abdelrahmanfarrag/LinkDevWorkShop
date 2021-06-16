@@ -7,8 +7,6 @@ import android.os.Build
 
 /**
  * Authored by Abdelrahman Ahmed on 14 Jun, 2021.
- * Contact: afarrag@youxel.com
- * by :YOUXEL
  */
 @Suppress("DEPRECATION") fun Context.isNetworkAvailable(): Boolean {
   val connectivityManager = getSystemService(Context.CONNECTIVITY_SERVICE) as ConnectivityManager

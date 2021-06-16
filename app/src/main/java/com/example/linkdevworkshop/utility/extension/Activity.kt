@@ -17,8 +17,6 @@ import com.example.linkdevworkshop.utility.openLoadingDialog
 
 /**
  * Authored by Abdelrahman Ahmed on 14 Jun, 2021.
- * Contact: afarrag@youxel.com
- * by :YOUXEL
  */
 fun BaseActivity.toast(message: String) {
   Toast.makeText(this, message, Toast.LENGTH_SHORT).show()

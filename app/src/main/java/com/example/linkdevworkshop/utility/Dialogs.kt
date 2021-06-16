@@ -8,8 +8,6 @@ import com.example.linkdevworkshop.R
 
 /**
  * Authored by Abdelrahman Ahmed on 14 Jun, 2021.
- * Contact: afarrag@youxel.com
- * by :YOUXEL
  */
 fun Context.openLoadingDialog(): Dialog {
   val dialog = Dialog(this)

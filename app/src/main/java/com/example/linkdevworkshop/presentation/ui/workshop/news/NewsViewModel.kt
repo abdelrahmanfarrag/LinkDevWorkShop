@@ -22,8 +22,6 @@ import javax.inject.Inject
 
 /**
  * Authored by Abdelrahman Ahmed on 14 Jun, 2021.
- * Contact: afarrag@youxel.com
- * by :YOUXEL
  */
 class NewsViewModel @Inject constructor(private val newsUseCase: NewsUseCase) : ViewModel() {
 

@@ -15,8 +15,6 @@ import com.example.linkdevworkshop.utility.openLoadingDialog
 
 /**
  * Authored by Abdelrahman Ahmed on 14 Jun, 2021.
- * Contact: afarrag@youxel.com
- * by :YOUXEL
  */
 
 /**
@@ -46,7 +44,7 @@ fun BaseFragment.toast(msg: String) {
 }
 
 fun BaseFragment.adjustViewPan() {
-  requireActivity().window.setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_ADJUST_PAN);
+  requireActivity().window.setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_ADJUST_PAN)
 }
 
 /**

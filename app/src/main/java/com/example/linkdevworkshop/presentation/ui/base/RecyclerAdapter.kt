@@ -9,8 +9,6 @@ import androidx.viewbinding.ViewBinding
 
 /**
  * Authored by Abdelrahman Ahmed on 14 Jun, 2021.
- * Contact: afarrag@youxel.com
- * by :YOUXEL
  */
 abstract class RecyclerAdapter<T, H : BaseViewHolder<T>>() :
   RecyclerView.Adapter<H>() {
